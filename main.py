@@ -4,6 +4,8 @@ from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, START, END
 from langsmith import traceable
 
+import streamlit as st
+
 from prompts.response_prompt import email_response_prompt
 from prompts.summary_prompt import email_summary_prompt
 
@@ -18,14 +20,6 @@ class AgentState(BaseModel):
     email_text: str = ''
     summary_llm_response: str = ''
     email_responses: list[str] = []
-
-def read_content(state):
-    """This function currently reads the email from local files. Due to be changed to read from the streamlit app for usability."""
-    file_path = "data/email1.txt"
-
-    with open(file_path, 'r') as file:
-        text = file.read()
-        return {'email_text': text}
 
 @traceable
 def llm_summary_response(state):
@@ -50,15 +44,46 @@ def llm_email_responses(state):
     return {'email_responses': email_responses}
 
 workflow = StateGraph(AgentState)
-workflow.add_node("read_content", read_content)
 workflow.add_node("llm_summary_response", llm_summary_response)
 workflow.add_node("llm_email_responses", llm_email_responses)
 
-workflow.add_edge(START, "read_content")
-workflow.add_edge("read_content", "llm_summary_response")
+workflow.add_edge(START, "llm_summary_response")
 workflow.add_edge("llm_summary_response", "llm_email_responses")
 workflow.add_edge("llm_email_responses", END)
 
 graph = workflow.compile()
-result = graph.invoke({"email_text": "Hello, I am writing to you to discuss the project we are working on."})
-print(result)
+
+st.title("Email Assistant")
+
+page = st.sidebar.radio("Select a page", ["Email Summary", "Email Responses"])
+
+#Store Results in Session State
+if "summary" not in st.session_state:
+    st.session_state.summary = ""
+if "responses" not in st.session_state:
+    st.session_state.responses = []
+
+if page == "Email Summary":
+    st.subheader("Enter Email Text:")
+    email_text = st.text_area("Paste your email here:", height=200)
+
+    if st.button("Generate Summary"):
+        if email_text.strip():
+            result = graph.invoke({"email_text": email_text})
+            st.session_state.summary = result['summary_llm_response']
+            st.session_state.responses = result['email_responses']
+            st.success("Summary Generated Successfully!")
+        else:
+            st.warning("Please enter an email first.")
+
+    if st.session_state.summary:
+        st.subheader("Email Summary:")
+        st.write(st.session_state.summary)
+
+elif page == "Email Responses":
+    st.subheader("Generated Email Responses:")
+    if st.session_state.responses:
+        for i, response in enumerate(st.session_state.responses):
+            st.write(response)
+    else:
+        st.warning("No response generated yet. Go to 'Email Summary' and generate first.")
