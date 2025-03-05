@@ -1,0 +1,22 @@
+Subject: Urgent Issue: AI Chatbot Not Functioning Properly
+To: Customer Support Team, AI Chat Solutions Inc.
+From: Emily Thompson (Customer Support Lead, BrightTech Solutions)
+
+Dear Support Team,
+
+I am writing to report a critical issue with the AI chatbot service we integrated into our customer support system last month. Initially, the chatbot was performing well, but over the last week, we have encountered multiple issues that are impacting our customer experience.
+
+Specific Problems We Are Facing:
+	1.	Incorrect Responses: The chatbot is frequently misunderstanding customer queries and providing irrelevant answers.
+	2.	Slow Response Time: Previously, responses were under 2 seconds, but now it takes up to 10-15 seconds to generate a reply.
+	3.	Conversation History Loss: The chatbot forgets previous messages in the same conversation thread, leading to repetitive queries.
+	4.	Integration Errors: Some API calls to our CRM system are failing intermittently, affecting ticket generation.
+
+This issue is affecting our customer support efficiency and leading to negative reviews. We need urgent assistance to resolve these problems as soon as possible.
+
+Please let me know if you need additional logs or access credentials to diagnose the issue. Looking forward to your prompt response.
+
+Best,
+Emily Thompson
+Customer Support Lead, BrightTech Solutions
+📧 emily.thompson@brighttech.com | 📞 +1 (555) 789-3456

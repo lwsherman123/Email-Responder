@@ -1,0 +1,24 @@
+📧 4. Client Request for AI Dashboard Customization
+
+Subject: Customization Request for AI Analytics Dashboard
+To: Lisa Monroe (Data Analytics Manager, FinTech Solutions)
+From: Alex Rogers (Product Manager, AI Insights Ltd.)
+
+Dear Lisa,
+
+I hope you’re doing well. We’ve been using your AI-powered analytics dashboard for the past few months, and overall, we are quite satisfied with its capabilities. However, we have a few specific requirements that would greatly enhance our workflow.
+
+Customization Requests:
+	1.	Custom Report Generation: We need a feature that allows us to generate reports with custom date ranges and specific KPI selection.
+	2.	Real-Time Data Sync: Currently, the dashboard updates data every 6 hours, but we require real-time data syncing for our high-frequency trading operations.
+	3.	User Access Control: We want the ability to create role-based access permissions, ensuring that different teams only see relevant data.
+	4.	Dark Mode UI Option: Many of our analysts work long hours, and a dark mode theme would be beneficial for reducing eye strain.
+
+Can you let us know if these changes can be implemented? If so, we would appreciate an estimate on costs and development timelines.
+
+Looking forward to your response!
+
+Best,
+Alex Rogers
+Product Manager, AI Insights Ltd.
+📧 alex.rogers@aiinsights.com | 📞 +1 (555) 432-6789
